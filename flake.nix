@@ -35,20 +35,30 @@
     };
   };
 
-  outputs = inputs @ {flake-parts, ...}:
+  outputs = inputs @ {
+    flake-parts,
+    nixpkgs,
+    ...
+  }:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
       imports = [./packages];
       perSystem = {
-        final,
+        pkgs,
         self',
+        system,
         ...
       }: {
-        devShells.default = import ./shells/all.nix {
-          pkgs = final;
-          inherit self';
+        _module.args = {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
-        devShells.ci = import ./shells/ci.nix {pkgs = final;};
+        devShells.default = import ./shells/all.nix {
+          inherit pkgs self';
+        };
+        devShells.ci = import ./shells/ci.nix {inherit pkgs;};
       };
     };
 }
