@@ -22,6 +22,7 @@
         cardano-node
         cardano-cli
         pkgs-with-rust-overlay
+        rust-bin-2024-08-01
         ;
       python3Packages = pkgs.python3Packages;
 
@@ -178,6 +179,7 @@
         inherit craneLib-nightly;
         inherit fetchGitHubFile;
         inherit installSourceAndCargo;
+        inherit rust-bin-2024-08-01;
       };
 
       args-zkVM-rust = {

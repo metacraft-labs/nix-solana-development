@@ -1,12 +1,12 @@
 {
-  clang11Stdenv,
+  clang14Stdenv,
   nodejs,
   fetchFromGitHub,
   pkgs,
   lib,
   xz,
 }:
-clang11Stdenv.mkDerivation rec {
+clang14Stdenv.mkDerivation rec {
   pname = "leap";
   version = "4.0.0";
 
@@ -25,13 +25,13 @@ clang11Stdenv.mkDerivation rec {
   nativeBuildInputs = with pkgs; [
     pkg-config
     cmake
-    clang_11
+    clang_14
     git
     python3
   ];
 
   buildInputs = with pkgs; [
-    llvm_11
+    llvm_14
     curl.dev
     gmp.dev
     openssl.dev

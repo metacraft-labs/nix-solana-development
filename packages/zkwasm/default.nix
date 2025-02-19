@@ -1,5 +1,5 @@
 {
-  rust-bin,
+  rust-bin-2024-08-01,
   craneLib-nightly,
   fetchFromGitHub,
   fetchGitHubFile,
@@ -29,7 +29,7 @@ let
   };
 
   craneLib = craneLib-nightly.overrideToolchain (
-    rust-bin.fromRustupToolchainFile (fetchGitHubFile {
+    rust-bin-2024-08-01.fromRustupToolchainFile (fetchGitHubFile {
       inherit (commonArgs.src) owner repo rev;
       file = "rust-toolchain";
       hash = "sha256-gHLj2AMKnStjvZcowfe9ZdTnwOBUPCRADmv81H7dAak=";

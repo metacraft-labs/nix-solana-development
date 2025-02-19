@@ -33,6 +33,11 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay-2024-08-01 = {
+      url = "github:oxalica/rust-overlay?ref=snapshot/2024-08-01";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

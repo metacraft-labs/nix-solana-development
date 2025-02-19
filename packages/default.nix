@@ -26,7 +26,7 @@
       rust-stable = pkgs-with-rust-overlay.rust-bin.stable.latest.default.override {
         extensions = [ "rust-src" ];
         targets = [
-          "wasm32-wasi"
+          "wasm32-wasip1"
           "wasm32-unknown-unknown"
         ];
       };
@@ -91,6 +91,8 @@
           craneLib-nightly
           pkgs-with-rust-overlay
           ;
+
+        rust-bin-2024-08-01 = inputs.rust-overlay-2024-08-01.lib.mkRustBin { } pkgs;
 
         rustPlatformStable = pkgs.makeRustPlatform {
           rustc = rust-stable;
