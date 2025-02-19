@@ -26,7 +26,11 @@ let
     };
   };
 
-  rust-toolchain = sp1-rust;
+  rust-toolchain = rust-bin.fromRustupToolchainFile (fetchGitHubFile {
+    inherit (commonArgs.src) owner repo rev;
+    file = "rust-toolchain";
+    hash = "sha256-AHwqAJB2brSXfzVVrQoFknsfoid2unlwGKvqdpsdOmk=";
+  });
   craneLib = craneLib-nightly.overrideToolchain rust-toolchain;
   cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 in
