@@ -1,5 +1,5 @@
 {
-  rust-bin,
+  sp1-rust,
   craneLib-nightly,
   fetchFromGitHub,
   fetchGitHubFile,
@@ -11,7 +11,7 @@
 let
   commonArgs = rec {
     pname = "sp1";
-    version = "unstable-2025-02-19";
+    version = "unstable-2025-02-20";
 
     nativeBuildInputs = [
       pkg-config
@@ -21,17 +21,13 @@ let
     src = fetchFromGitHub {
       owner = "succinctlabs";
       repo = "sp1";
-      rev = "9aa8e1c01950102723e8923f05ef368dd2db8333";
-      hash = "sha256-kJlEHQCgIL+cj2sXdVmxrrK4xKXVg27kchm1PphRyxQ=";
+      rev = "7864c6637d1e4c472d8c58ebf6e3b62c801d3ebe";
+      hash = "sha256-El3Z/YjIKn1VPELQAO9sjGpF2qxmjjE9ywMtUaiiYvs=";
       fetchSubmodules = true;
     };
   };
 
-  rust-toolchain = rust-bin.fromRustupToolchainFile (fetchGitHubFile {
-    inherit (commonArgs.src) owner repo rev;
-    file = "rust-toolchain";
-    hash = "sha256-AHwqAJB2brSXfzVVrQoFknsfoid2unlwGKvqdpsdOmk=";
-  });
+  rust-toolchain = sp1-rust;
   craneLib = craneLib-nightly.overrideToolchain rust-toolchain;
   cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 in
