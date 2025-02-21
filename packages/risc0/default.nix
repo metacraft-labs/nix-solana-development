@@ -17,16 +17,16 @@ let
   # https://github.com/risc0/risc0/blob/main/risc0/circuit/recursion/build.rs
   recursion-zkr =
     let
-      hash' = "4c67e5fe48c6db03df9518911067685542fecf0a54d5c6e3efd16e943c62a2cf";
+      hash' = "1b80b77894fbd489262e327478d02e83262c4bf189b0873fda3f0c85cdbfc8d1";
     in
     fetchurl rec {
       url = "https://risc0-artifacts.s3.us-west-2.amazonaws.com/zkr/${hash'}.zip";
-      hash = "sha256-TGfl/kjG2wPflRiREGdoVUL+zwpU1cbj79FulDxios8=";
+      hash = "sha256-G4C3eJT71IkmLjJ0eNAugyYsS/GJsIc/2j8Mhc2/yNE=";
     };
 
   commonArgs = rec {
     pname = "risc0";
-    version = "unstable-2025-02-14";
+    version = "unstable-2025-02-21";
 
     nativeBuildInputs = [
       autoPatchelfHook
@@ -38,8 +38,8 @@ let
     src = fetchFromGitHub {
       owner = "risc0";
       repo = "risc0";
-      rev = "0181c41119cf14e3f0f302e5ede1f20f6a1f81ce";
-      hash = "sha256-BbTB00HtIFOChShirHXLjZoCd1jHlcCv4M4XsCB1TCA=";
+      rev = "15590205746162addbb6df2269a337883a57092d";
+      hash = "sha256-sgQ714cpbBPsUXKi9Wx9u+8DvFFEoETaaWRW259O5DA=";
     };
   };
 

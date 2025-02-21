@@ -7,7 +7,7 @@
 }:
 stdenv.mkDerivation rec {
   name = "sp1-rust";
-  version = "1.81.0";
+  version = "1.82.0";
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -27,6 +27,6 @@ stdenv.mkDerivation rec {
     repo = "rust";
     tag = "v${version}";
     asset = "rust-toolchain-x86_64-unknown-linux-gnu.tar.gz";
-    hash = "sha256-aj55nDtUhD1A6y5jsZDw6B/2RaK5yjvIyZdn8LC65UY=";
+    hash = "sha256-3Vs11CLDXaxAJuP/UsWeznJjjsNvVZqKIra5KzldoIk=";
   };
 }

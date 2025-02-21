@@ -2,6 +2,7 @@
   sp1-rust,
   craneLib-nightly,
   fetchFromGitHub,
+  fetchGitHubFile,
   installSourceAndCargo,
   pkg-config,
   openssl,
@@ -10,7 +11,7 @@
 let
   commonArgs = rec {
     pname = "sp1";
-    version = "unstable-2025-02-09";
+    version = "unstable-2025-02-19";
 
     nativeBuildInputs = [
       pkg-config
@@ -20,8 +21,8 @@ let
     src = fetchFromGitHub {
       owner = "succinctlabs";
       repo = "sp1";
-      rev = "f4f9fb42332d9cd7371933dd18d1e2e0eef44429";
-      hash = "sha256-sX3E3uKGlm0vTLtGcHvo7AQIIPxVX1CSkeOaCyHIhDA=";
+      rev = "7864c6637d1e4c472d8c58ebf6e3b62c801d3ebe";
+      hash = "sha256-El3Z/YjIKn1VPELQAO9sjGpF2qxmjjE9ywMtUaiiYvs=";
       fetchSubmodules = true;
     };
   };
