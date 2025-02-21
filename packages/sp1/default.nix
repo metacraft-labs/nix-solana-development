@@ -11,7 +11,7 @@
 let
   commonArgs = rec {
     pname = "sp1";
-    version = "unstable-2025-02-20";
+    version = "unstable-2025-02-19";
 
     nativeBuildInputs = [
       pkg-config
